@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id              String         @id @default(cuid())
+  email           String         @unique
+  name            String?
+  passwordHash    String
+  ingestEmail     String         @unique
+  deliveryTime    String         @default("07:00")
+  timezone        String         @default("America/New_York")
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  subscriptions   Subscription[]
+  inboundEmails   InboundEmail[]
+  digestLogs      DigestLog[]
+}
+
+model Newsletter {
+  id            String         @id @default(cuid())
+  name          String
+  senderEmail   String         @unique
+  description   String?
+  category      Category       @default(UNCATEGORIZED)
+  websiteUrl    String?
+  createdAt     DateTime       @default(now())
+  subscriptions Subscription[]
+  inboundEmails InboundEmail[]
+}
+
+model Subscription {
+  id           String     @id @default(cuid())
+  userId       String
+  newsletterId String
+  active       Boolean    @default(true)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  newsletter   Newsletter @relation(fields: [newsletterId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, newsletterId])
+}
+
+model InboundEmail {
+  id           String      @id @default(cuid())
+  userId       String
+  newsletterId String?
+  fromEmail    String
+  subject      String
+  htmlBody     String
+  textBody     String?
+  receivedAt   DateTime    @default(now())
+  included     Boolean     @default(false)
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  newsletter   Newsletter? @relation(fields: [newsletterId], references: [id])
+}
+
+model DigestLog {
+  id         String   @id @default(cuid())
+  userId     String
+  sentAt     DateTime @default(now())
+  emailCount Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum Category {
+  TECHNOLOGY
+  BUSINESS
+  FINANCE
+  HEALTH
+  SCIENCE
+  SPORTS
+  ENTERTAINMENT
+  POLITICS
+  AUTOMOTIVE
+  DESIGN
+  FOOD
+  TRAVEL
+  EDUCATION
+  GAMING
+  LIFESTYLE
+  UNCATEGORIZED
+}
