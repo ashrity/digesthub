@@ -50,14 +50,14 @@ export async function sendDigestEmail(
       </div>
       ${htmlSections}
       <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 12px;">
-        Sent by DigestHub
+        Sent by OneDigest
       </div>
     </div>
   `;
 
   await sgMail.send({
     to: toEmail,
-    from: process.env.SENDGRID_FROM_EMAIL || "digest@digesthub.com",
+    from: process.env.SENDGRID_FROM_EMAIL || "digest@onedigest.com",
     subject: `Your Daily Digest - ${new Date().toLocaleDateString()}`,
     html,
   });

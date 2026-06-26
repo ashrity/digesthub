@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
   const text = (formData.get("text") as string) || "";
 
   // Extract the ingest email address from the "to" field
-  const ingestMatch = to.match(/([a-f0-9]+@digesthub\.com)/i);
+  const ingestMatch = to.match(/([a-f0-9]+@onedigest\.com)/i);
   if (!ingestMatch) {
     return Response.json({ error: "Unknown recipient" }, { status: 404 });
   }

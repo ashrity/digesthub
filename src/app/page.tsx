@@ -10,7 +10,7 @@ export default function Home() {
           <span className="text-indigo-600">One Daily Email.</span>
         </h1>
         <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-          Stop drowning in newsletter emails. DigestHub collects all your subscriptions
+          Stop drowning in newsletter emails. OneDigest collects all your subscriptions
           and delivers them in a single, organized digest at the time you choose —
           grouped by category so you can find what matters fast.
         </p>
@@ -32,7 +32,7 @@ export default function Home() {
           <div>
             <h3 className="font-semibold text-gray-900">Unified Inbox</h3>
             <p className="mt-2 text-sm text-gray-600">
-              Forward newsletters to your unique DigestHub address. We collect and organize them for you.
+              Forward newsletters to your unique OneDigest address. We collect and organize them for you.
             </p>
           </div>
           <div>

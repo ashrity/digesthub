@@ -20,7 +20,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center gap-8">
             <Link href="/dashboard" className="text-xl font-bold text-indigo-600">
-              DigestHub
+              OneDigest
             </Link>
             {session && (
               <div className="flex gap-1">

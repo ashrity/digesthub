@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DigestHub - All Your Newsletters, One Email",
+  title: "OneDigest - All Your Newsletters, One Email",
   description: "Aggregate all your newsletter subscriptions into a single daily digest email, organized by category.",
 };
 

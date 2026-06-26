@@ -34,7 +34,7 @@ export default function LoginPage() {
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4">
       <div className="w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-center text-gray-900">Sign in to DigestHub</h1>
+        <h1 className="text-2xl font-bold text-center text-gray-900">Sign in to OneDigest</h1>
         <form onSubmit={handleSubmit} className="mt-8 space-y-4">
           {error && (
             <div className="p-3 text-sm text-red-600 bg-red-50 rounded-md">{error}</div>

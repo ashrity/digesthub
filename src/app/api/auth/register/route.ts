@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     }
 
     const passwordHash = await bcrypt.hash(password, 12);
-    const ingestEmail = `${crypto.randomBytes(8).toString("hex")}@digesthub.com`;
+    const ingestEmail = `${crypto.randomBytes(8).toString("hex")}@onedigest.com`;
 
     const user = await prisma.user.create({
       data: { email, passwordHash, name, ingestEmail },
