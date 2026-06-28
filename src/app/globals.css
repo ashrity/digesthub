@@ -1,8 +1,15 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-navy-950: #060d1b;
+  --color-navy-900: #0a1628;
+  --color-navy-800: #111d35;
+  --color-navy-700: #1a2744;
+  --color-navy-600: #243352;
+  --color-navy-500: #2e4a6e;
 }
 
 body {
